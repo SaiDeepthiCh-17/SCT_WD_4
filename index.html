@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - To-Do App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+
+<body class="animated-bg">
+    <div class="container">
+        <header>
+            <h1>TaskMaster <i class="fas fa-tasks"></i></h1>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <label for="theme-toggle"></label>
+                </div>
+                <i class="fas fa-sun"></i>
+            </div>
+        </header>
+
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search tasks...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-stats">
+                <span id="progress-text">0% Complete</span>
+                <span id="task-count">0/0 Tasks</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="add-task">
+            <input type="text" id="task-input" placeholder="Add a new task...">
+            <input type="datetime-local" id="task-date">
+            <select id="task-priority">
+                <option value="low">Low Priority</option>
+                <option value="medium" selected>Medium Priority</option>
+                <option value="high">High Priority</option>
+            </select>
+            <select id="task-category">
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="shopping">Shopping</option>
+                <option value="other">Other</option>
+            </select>
+            <button id="add-btn">Add Task</button>
+        </div>
+
+        <div class="task-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <div class="tasks-container">
+            <ul id="tasks-list"></ul>
+        </div>
+
+        <div class="task-actions">
+            <button id="clear-completed">Clear Completed</button>
+            <button id="clear-all">Clear All</button>
+        </div>
+
+        <div class="completion-message" id="completion-message">
+            <div class="celebration-icon"><i class="fas fa-trophy"></i></div>
+            <h3>All Tasks Completed!</h3>
+            <p>Excellent job! You've completed all your tasks.</p>
+        </div>
+    </div>
+
+    <div class="edit-modal" id="edit-modal">
+        <div class="edit-content">
+            <span class="close">&times;</span>
+            <h2>Edit Task</h2>
+            <input type="text" id="edit-task-input">
+            <input type="datetime-local" id="edit-task-date">
+            <select id="edit-task-priority">
+                <option value="low">Low Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="high">High Priority</option>
+            </select>
+            <select id="edit-task-category">
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="shopping">Shopping</option>
+                <option value="other">Other</option>
+            </select>
+            <button id="save-edit">Save Changes</button>
+        </div>
+    </div>
+
+    <div class="confetti-container" id="confetti-canvas"></div>
+    <div class="floating-particles" id="particles-container"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
